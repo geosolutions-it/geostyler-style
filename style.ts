@@ -360,6 +360,10 @@ export interface IconSymbolizer extends BasePointSymbolizer {
    */
   image?: string;
   /**
+   * The format (MIME type) of the image provided.
+   */
+  format?: `image/${'png' | 'jpg' | 'jpeg' | 'gif' | 'svg+xml'}`;
+  /**
    * If true, the icon will be kept upright.
    */
   keepUpright?: boolean;
@@ -550,11 +554,21 @@ export interface ColorMap {
 }
 
 /**
+ * A VendorOption defines the algorithm to apply for Normalize contrast enhancement.
+ */
+export interface VendorOption {
+  algorithm?: 'StretchToMinimumMaximum' | 'ClipToMinimumMaximum' | 'ClipToZero';
+  minValue?: number;
+  maxValue?: number;
+}
+
+/**
  * A ContrastEnhancement defines how the contrast of image data should be enhanced.
  */
 export interface ContrastEnhancement {
   enhancementType?: 'normalize' | 'histogram';
   gammaValue?: number;
+  vendorOption?: VendorOption;
 }
 
 /**
