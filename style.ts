@@ -554,10 +554,10 @@ export interface ColorMap {
 }
 
 /**
- * A VendorOption defines the algorithm to apply for Normalize contrast enhancement.
+ * A ContrastEnhancementVendorOption defines the algorithm to apply for Normalize contrast enhancement.
  */
-export interface VendorOption {
-  algorithm?: 'StretchToMinimumMaximum' | 'ClipToMinimumMaximum' | 'ClipToZero';
+export interface ContrastEnhancementVendorOption {
+  algorithm: 'StretchToMinimumMaximum' | 'ClipToMinimumMaximum' | 'ClipToZero';
   minValue?: number;
   maxValue?: number;
 }
@@ -568,7 +568,7 @@ export interface VendorOption {
 export interface ContrastEnhancement {
   enhancementType?: 'normalize' | 'histogram';
   gammaValue?: number;
-  vendorOption?: VendorOption;
+  vendorOption?: ContrastEnhancementVendorOption;
 }
 
 /**
