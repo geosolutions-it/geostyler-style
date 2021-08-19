@@ -90,6 +90,30 @@
                 },
                 "gammaValue": {
                     "type": "number"
+                },
+                "vendorOption": {
+                    "$ref": "http://geostyler/geostyler-style.json#/definitions/ContrastEnhancementVendorOption",
+                    "description": "A ContrastEnhancementVendorOption defines the algorithm to apply for Normalize contrast enhancement."
+                }
+            },
+            "type": "object"
+        },
+        "ContrastEnhancementVendorOption": {
+            "description": "A ContrastEnhancementVendorOption defines the algorithm to apply for Normalize contrast enhancement.",
+            "properties": {
+                "algorithm": {
+                    "enum": [
+                        "ClipToMinimumMaximum",
+                        "ClipToZero",
+                        "StretchToMinimumMaximum"
+                    ],
+                    "type": "string"
+                },
+                "maxValue": {
+                    "type": "number"
+                },
+                "minValue": {
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -298,6 +322,17 @@
                 },
                 "color": {
                     "description": "A color defined as a hex-color string.",
+                    "type": "string"
+                },
+                "format": {
+                    "description": "The format (MIME type) of the image provided.",
+                    "enum": [
+                        "image/gif",
+                        "image/jpeg",
+                        "image/jpg",
+                        "image/png",
+                        "image/svg+xml"
+                    ],
                     "type": "string"
                 },
                 "haloBlur": {
